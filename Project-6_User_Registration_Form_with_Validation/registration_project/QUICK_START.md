@@ -1,6 +1,6 @@
 # ⚡ QUICK START - 3 Simple Steps
 
-## 🎯 Super Simple Setup (No Database!)
+## 🎯 Super Simple Setup 
 
 ### Step 1: Copy to XAMPP
 ```
