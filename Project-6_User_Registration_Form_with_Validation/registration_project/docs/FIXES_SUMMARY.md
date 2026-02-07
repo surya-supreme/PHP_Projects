@@ -71,7 +71,7 @@ Features:
 - Displays recent registrations
 - Provides solutions for common problems
 
-**Usage:** Visit `http://localhost/registration_project_fixed/test_connection.php`
+**Usage:** Visit `http://localhost/registration_project/test_connection.php`
 
 ### 2. **Comprehensive Legal Documents**
 
