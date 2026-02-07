@@ -16,7 +16,7 @@ Run through this checklist to identify and fix common issues:
 
 ### ✅ Step 3: File Location
 - [ ] All files are in the correct htdocs/www folder
-- [ ] Can access http://localhost/registration_form_fixed/
+- [ ] Can access http://localhost/registration_form/
 
 ### ✅ Step 4: PHP Configuration
 - [ ] PHP version is 7.4 or higher
@@ -46,45 +46,6 @@ mysql -u root -p
 
 ---
 
-### 🔴 Error: "Unknown database 'registration_db'"
-
-**Cause:** Database hasn't been created
-
-**Solution:**
-1. Open phpMyAdmin (http://localhost/phpmyadmin)
-2. Create new database named `registration_db`
-3. Import `database_setup.sql`:
-   - Click on `registration_db` database
-   - Click "Import" tab
-   - Choose file
-   - Click "Go"
-
-**Alternative - Command Line:**
-```sql
-mysql -u root -p
-CREATE DATABASE registration_db;
-USE registration_db;
-SOURCE /path/to/database_setup.sql;
-```
-
----
-
-### 🔴 Error: "Table 'registration_db.users' doesn't exist"
-
-**Cause:** SQL file wasn't imported properly
-
-**Solution:**
-1. Open MySQL command line or phpMyAdmin
-2. Select `registration_db` database
-3. Run the entire contents of `database_setup.sql`
-4. Verify table exists:
-```sql
-SHOW TABLES;
-DESCRIBE users;
-```
-
----
-
 ### 🔴 Error: Form shows errors immediately without submitting
 
 **Cause:** JavaScript validation is too strict or issues with script.js
@@ -94,7 +55,7 @@ DESCRIBE users;
 2. Ensure `script.js` is loading:
    - View page source
    - Look for `<script src="script.js"></script>`
-   - Try accessing http://localhost/registration_form_fixed/script.js
+   - Try accessing http://localhost/registration_form/script.js
 3. Clear browser cache (Ctrl+Shift+Delete)
 
 ---
@@ -115,7 +76,7 @@ $_SESSION['test'] = 'working';
 echo session_id() ? "Sessions are working!" : "Sessions NOT working";
 ?>
 ```
-4. Visit http://localhost/registration_form_fixed/test.php
+4. Visit http://localhost/registration_form/test.php
 
 ---
 
@@ -127,7 +88,7 @@ echo session_id() ? "Sessions are working!" : "Sessions NOT working";
 1. Verify `terms.php` exists in same folder as `index.php`
 2. Check file permissions (Linux):
 ```bash
-ls -la /var/www/html/registration_form_fixed/terms.php
+ls -la /var/www/html/registration_form/terms.php
 chmod 644 terms.php
 ```
 3. Check for typos in the link
@@ -187,61 +148,8 @@ Date of birth must make user at least 13 years old
 
 **Solution:**
 1. Check if `success.php` exists
-2. Manually visit http://localhost/registration_form_fixed/success.php
-3. Check if data was inserted:
-```sql
-USE registration_db;
-SELECT * FROM users ORDER BY id DESC LIMIT 5;
-```
-4. Check PHP error logs for redirect issues
-
----
-
-## Testing Database Connection
-
-Create a test file `test_db.php`:
-
-```php
-<?php
-require_once 'config.php';
-
-echo "<h2>Database Connection Test</h2>";
-
-try {
-    $conn = getConnection();
-    echo "<p style='color: green;'>✅ Database connection successful!</p>";
-    
-    // Test if table exists
-    $result = $conn->query("SHOW TABLES LIKE 'users'");
-    if ($result->num_rows > 0) {
-        echo "<p style='color: green;'>✅ Table 'users' exists!</p>";
-    } else {
-        echo "<p style='color: red;'>❌ Table 'users' does NOT exist!</p>";
-        echo "<p>Please run database_setup.sql</p>";
-    }
-    
-    // Show table structure
-    $result = $conn->query("DESCRIBE users");
-    echo "<h3>Table Structure:</h3><pre>";
-    while ($row = $result->fetch_assoc()) {
-        print_r($row);
-    }
-    echo "</pre>";
-    
-    $conn->close();
-} catch (Exception $e) {
-    echo "<p style='color: red;'>❌ Error: " . $e->getMessage() . "</p>";
-    echo "<h3>Common Solutions:</h3>";
-    echo "<ul>";
-    echo "<li>Check if MySQL is running</li>";
-    echo "<li>Verify database credentials in config.php</li>";
-    echo "<li>Ensure database 'registration_db' exists</li>";
-    echo "</ul>";
-}
-?>
-```
-
-Visit: http://localhost/registration_form_fixed/test_db.php
+2. Manually visit http://localhost/registration_form/success.php
+3. Check PHP error logs for redirect issues
 
 ---
 
@@ -320,7 +228,6 @@ netstat -tuln | grep :3306
    - OS: (Windows/Linux/Mac)
    - Server: (XAMPP/WAMP/LAMP)
    - PHP Version: (run `php -v`)
-   - MySQL Version: (run `mysql --version`)
 
 2. **Error Details:**
    - Exact error message
@@ -331,12 +238,10 @@ netstat -tuln | grep :3306
 3. **Check:**
    - Browser console errors (F12)
    - PHP error logs
-   - MySQL error logs
    - Network tab in DevTools
 
 4. **Test Files:**
    - Can you access index.php?
-   - Can you access test_db.php?
    - Does phpMyAdmin work?
 
 ---
