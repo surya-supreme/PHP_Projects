@@ -3,7 +3,7 @@
 ## Complete Project Tree
 
 ```
-registration_project_organized/
+registration_project/
 │
 ├── 📄 index.php                    ← START HERE! (Main registration page)
 ├── 📄 README.md                    ← Setup instructions
@@ -347,7 +347,7 @@ PROTECTED DATA (Server only):
 **User data:** `data/` folder
 
 **URL to access:**
-`http://localhost/registration_project_organized/`
+`http://localhost/registration_project/`
 
 ---
 
