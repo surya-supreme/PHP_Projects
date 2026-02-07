@@ -1,4 +1,4 @@
-# 📁 User Registration System - Professional Project Structure
+# 📁 User Registration System
 
 ## 🎯 Project Overview
 A complete PHP user registration and login system with **NO DATABASE REQUIRED**. Uses file-based storage (JSON) for simplicity and easy setup.
@@ -8,7 +8,7 @@ A complete PHP user registration and login system with **NO DATABASE REQUIRED**.
 ## 📂 Project Folder Structure
 
 ```
-registration_project_organized/
+registration_project/
 │
 ├── 📄 index.php                    ← Main landing page (Registration Form)
 │
@@ -55,12 +55,12 @@ registration_project_organized/
 3. Start **Apache** service (no need for MySQL)
 
 ### Step 2: Copy Project
-1. Extract the `registration_project_organized` folder
+1. Extract the `registration_project` folder
 2. Copy it to: `C:\xampp\htdocs\`
    
    Final path should be:
    ```
-   C:\xampp\htdocs\registration_project_organized\
+   C:\xampp\htdocs\registration_project\
    ```
 
 ### Step 3: Set Permissions (Important!)
@@ -78,7 +78,7 @@ chmod 666 data/users.json
 
 ### Step 4: Open in Browser
 1. Open your web browser
-2. Go to: `http://localhost/registration_project_organized/`
+2. Go to: `http://localhost/registration_project/`
 3. That's it! No database setup needed!
 
 ---
@@ -88,7 +88,7 @@ chmod 666 data/users.json
 ```
 1. Open Browser
    ↓
-   http://localhost/registration_project_organized/
+   http://localhost/registration_project/
    (Shows: index.php - Registration Form)
    
 2. Fill Registration Form
@@ -208,13 +208,13 @@ chmod 666 data/users.json
 ```batch
 1. Open XAMPP Control Panel
 2. Start Apache
-3. Open browser: http://localhost/registration_project_organized/
+3. Open browser: http://localhost/registration_project/
 ```
 
 ### Linux/Mac:
 ```bash
 # If using built-in PHP server
-cd /path/to/registration_project_organized
+cd /path/to/registration_project
 php -S localhost:8000
 
 # Open browser: http://localhost:8000/
@@ -225,7 +225,7 @@ php -S localhost:8000
 ## 🧪 Testing the Application
 
 1. **Register a New User:**
-   - Go to `http://localhost/registration_project_organized/`
+   - Go to `http://localhost/registration_project/`
    - Fill all required fields
    - Click "Create Account"
    - See success message
@@ -323,9 +323,9 @@ header("Location: ../pages/dashboard.php");    // ✅ Correct
 
 ### "Not Found" Error
 **Solution:**
-- Check folder is at: `C:\xampp\htdocs\registration_project_organized/`
+- Check folder is at: `C:\xampp\htdocs\registration_project/`
 - Check Apache is running
-- URL should be: `http://localhost/registration_project_organized/`
+- URL should be: `http://localhost/registration_project/`
 
 ### CSS/JS Not Loading
 **Solution:**
