@@ -1,4 +1,4 @@
-# 📁 User Registration System - Professional Project Structure
+# 📁 User Registration System
 
 ## 🎯 Project Overview
 A complete PHP user registration and login system with **NO DATABASE REQUIRED**. Uses file-based storage (JSON) for simplicity and easy setup.
