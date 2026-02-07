@@ -16,7 +16,7 @@ Run through this checklist to identify and fix common issues:
 
 ### ✅ Step 3: File Location
 - [ ] All files are in the correct htdocs/www folder
-- [ ] Can access http://localhost/registration_project_fixed/
+- [ ] Can access http://localhost/registration_project/
 
 ### ✅ Step 4: PHP Configuration
 - [ ] PHP version is 7.4 or higher
@@ -58,31 +58,6 @@ mysql -u root -p
    - Click "Import" tab
    - Choose file
    - Click "Go"
-
-**Alternative - Command Line:**
-```sql
-mysql -u root -p
-CREATE DATABASE registration_db;
-USE registration_db;
-SOURCE /path/to/database_setup.sql;
-```
-
----
-
-### 🔴 Error: "Table 'registration_db.users' doesn't exist"
-
-**Cause:** SQL file wasn't imported properly
-
-**Solution:**
-1. Open MySQL command line or phpMyAdmin
-2. Select `registration_db` database
-3. Run the entire contents of `database_setup.sql`
-4. Verify table exists:
-```sql
-SHOW TABLES;
-DESCRIBE users;
-```
-
 ---
 
 ### 🔴 Error: Form shows errors immediately without submitting
@@ -115,7 +90,7 @@ $_SESSION['test'] = 'working';
 echo session_id() ? "Sessions are working!" : "Sessions NOT working";
 ?>
 ```
-4. Visit http://localhost/registration_project_fixed/test.php
+4. Visit http://localhost/registration_project/test.php
 
 ---
 
@@ -127,7 +102,7 @@ echo session_id() ? "Sessions are working!" : "Sessions NOT working";
 1. Verify `terms.php` exists in same folder as `index.php`
 2. Check file permissions (Linux):
 ```bash
-ls -la /var/www/html/registration_project_fixed/terms.php
+ls -la /var/www/html/registration_project/terms.php
 chmod 644 terms.php
 ```
 3. Check for typos in the link
@@ -178,70 +153,6 @@ Date of birth must make user at least 13 years old
 - If today is 2026-02-06
 - DOB must be 2013-02-06 or earlier
 - System calculates this automatically
-
----
-
-### 🔴 Error: Registration succeeds but no success message
-
-**Cause:** success.php missing or session issues
-
-**Solution:**
-1. Check if `success.php` exists
-2. Manually visit http://localhost/registration_project_fixed/success.php
-3. Check if data was inserted:
-```sql
-USE registration_db;
-SELECT * FROM users ORDER BY id DESC LIMIT 5;
-```
-4. Check PHP error logs for redirect issues
-
----
-
-## Testing Database Connection
-
-Create a test file `test_db.php`:
-
-```php
-<?php
-require_once 'config.php';
-
-echo "<h2>Database Connection Test</h2>";
-
-try {
-    $conn = getConnection();
-    echo "<p style='color: green;'>✅ Database connection successful!</p>";
-    
-    // Test if table exists
-    $result = $conn->query("SHOW TABLES LIKE 'users'");
-    if ($result->num_rows > 0) {
-        echo "<p style='color: green;'>✅ Table 'users' exists!</p>";
-    } else {
-        echo "<p style='color: red;'>❌ Table 'users' does NOT exist!</p>";
-        echo "<p>Please run database_setup.sql</p>";
-    }
-    
-    // Show table structure
-    $result = $conn->query("DESCRIBE users");
-    echo "<h3>Table Structure:</h3><pre>";
-    while ($row = $result->fetch_assoc()) {
-        print_r($row);
-    }
-    echo "</pre>";
-    
-    $conn->close();
-} catch (Exception $e) {
-    echo "<p style='color: red;'>❌ Error: " . $e->getMessage() . "</p>";
-    echo "<h3>Common Solutions:</h3>";
-    echo "<ul>";
-    echo "<li>Check if MySQL is running</li>";
-    echo "<li>Verify database credentials in config.php</li>";
-    echo "<li>Ensure database 'registration_db' exists</li>";
-    echo "</ul>";
-}
-?>
-```
-
-Visit: http://localhost/registration_project_fixed/test_db.php
 
 ---
 
@@ -320,7 +231,6 @@ netstat -tuln | grep :3306
    - OS: (Windows/Linux/Mac)
    - Server: (XAMPP/WAMP/LAMP)
    - PHP Version: (run `php -v`)
-   - MySQL Version: (run `mysql --version`)
 
 2. **Error Details:**
    - Exact error message
