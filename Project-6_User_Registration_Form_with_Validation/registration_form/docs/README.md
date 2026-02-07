@@ -1,4 +1,4 @@
-# User Registration System - Fixed Version
+# User Registration System
 
 ## 🎯 Overview
 This is a complete PHP-based user registration system with enhanced error handling, comprehensive terms and conditions, and improved security features.
