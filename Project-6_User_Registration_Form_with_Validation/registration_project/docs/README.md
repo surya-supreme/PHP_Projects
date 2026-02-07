@@ -59,28 +59,28 @@ define('DB_NAME', 'registration_db');
 ### 3. Deploy Files
 
 **For XAMPP:**
-- Copy all project files to `C:\xampp\htdocs\registration_project_fixed\`
-- Access via: `http://localhost/registration_project_fixed/`
+- Copy all project files to `C:\xampp\htdocs\registration_project\`
+- Access via: `http://localhost/registration_project/`
 
 **For WAMP:**
-- Copy all project files to `C:\wamp64\www\registration_project_fixed\`
-- Access via: `http://localhost/registration_project_fixed/`
+- Copy all project files to `C:\wamp64\www\registration_project\`
+- Access via: `http://localhost/registration_project/`
 
 **For LAMP (Linux):**
-- Copy all project files to `/var/www/html/registration_project_fixed/`
-- Access via: `http://localhost/registration_project_fixed/`
+- Copy all project files to `/var/www/html/registration_project/`
+- Access via: `http://localhost/registration_project/`
 
 ### 4. Set Permissions (Linux only)
 
 ```bash
-sudo chown -R www-data:www-data /var/www/html/registration_project_fixed
-sudo chmod -R 755 /var/www/html/registration_project_fixed
+sudo chown -R www-data:www-data /var/www/html/registration_project
+sudo chmod -R 755 /var/www/html/registration_project
 ```
 
 ### 5. Test the Application
 
 1. Open your browser
-2. Navigate to `http://localhost/registration_project_fixed/`
+2. Navigate to `http://localhost/registration_project/`
 3. Try registering a new user
 
 ## 🐛 Common Issues and Solutions
