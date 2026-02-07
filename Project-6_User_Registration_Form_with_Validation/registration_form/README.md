@@ -1,4 +1,4 @@
-# 📁 User Registration System
+# 📁 User Registration Form
 
 ## 🎯 Project Overview
 A complete PHP user registration and login system with **NO DATABASE REQUIRED**. Uses file-based storage (JSON) for simplicity and easy setup.
@@ -394,4 +394,4 @@ This project is completely ready to run. No database setup, no complex configura
 3. Open in browser
 4. Start using!
 
-**Enjoy your professional, well-organized registration system!** 🚀
+**Enjoy your professional, well-organized registration form!** 🚀
