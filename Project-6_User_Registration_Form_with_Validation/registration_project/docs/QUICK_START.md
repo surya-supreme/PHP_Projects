@@ -44,12 +44,12 @@ define('DB_NAME', 'registration_db');  // Must match Step 2
 ### Step 5: Test Everything (2 minutes)
 
 **Test 1: Connection**
-Visit: `http://localhost/registration_project_fixed/test_connection.php`
+Visit: `http://localhost/registration_project/test_connection.php`
 - Should show all green checkmarks ✅
 - If not, see error messages for solutions
 
 **Test 2: Registration Form**
-Visit: `http://localhost/registration_project_fixed/`
+Visit: `http://localhost/registration_project/`
 - Fill in the form
 - Click "Create Account"
 - Should redirect to success page
@@ -95,7 +95,7 @@ Click "Create Account" → Should work! ✅
 **Solution:** 
 1. Check MySQL is running
 2. Open `config.php` and verify credentials
-3. Run: `http://localhost/registration_project_fixed/test_connection.php`
+3. Run: `http://localhost/registration_project/test_connection.php`
 
 ### Problem: Table 'users' doesn't exist
 **Solution:** Import `database_setup.sql` again (see Step 2)
@@ -117,7 +117,7 @@ Example: `TestPass123` ✅
 ## 📁 Files You Should Have
 
 ```
-registration_project_fixed/
+registration_project/
 ├── index.php                    ← Main registration form
 ├── register.php                 ← Processes registration
 ├── success.php                  ← Success page
