@@ -14,7 +14,7 @@ Open XAMPP Control Panel → Click "Start" next to Apache
 
 ### Step 3: Open Browser
 ```
-Go to: http://localhost/registration_project_organized/
+Go to: http://localhost/registration_project/
 ```
 
 **That's it!** No database setup needed! 🎉
@@ -24,7 +24,7 @@ Go to: http://localhost/registration_project_organized/
 ## 🎮 How to Use
 
 ### Register New User:
-1. Fill the form at `http://localhost/registration_project_organized/`
+1. Fill the form at `http://localhost/registration_project/`
 2. Click "Create Account"
 3. See success message
 
@@ -93,8 +93,8 @@ chmod 777 data/
 
 | What | URL |
 |------|-----|
-| Main page (Register) | `http://localhost/registration_project_organized/` |
-| Login | `http://localhost/registration_project_organized/pages/login.php` |
+| Main page (Register) | `http://localhost/registration_project/` |
+| Login | `http://localhost/registration_project/pages/login.php` |
 | Dashboard | Automatic after login |
 
 ---
